@@ -28,6 +28,7 @@
                 <a>@Html.ActionLink("Date", "Index", new { orden = "Date" })</a>
             </th>
             <th></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -39,6 +40,7 @@
                     <td>@Html.DisplayFor(n=>note.Body)</td>
                     <td>@note.Date.ToShortDateString()</td>
                     <td>@Html.ActionLink("Details", "Details", new { Id = note.Id })</td>
+                    <td>@Html.ActionLink("Edit", "Edit", new { Id = Model.Id })</td>
                 </tr>
             }
         }
