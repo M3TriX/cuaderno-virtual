@@ -1,0 +1,28 @@
+﻿@model Note
+
+@{
+    ViewData["Title"] = "View notes";
+}
+<!--hago uso de la lista que envié a traves del controlador-->
+<h1>View note</h1>
+
+<div class="row">
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">@Html.DisplayFor(n=>n.Title)</h5>
+            <h6 class="card-subtitle mb-2 text-muted">@Model.Date.ToShortDateString()</h6>
+            <p class="card-text">@Html.DisplayFor(n=>n.Body)</p>
+            <a href="#" class="card-link">@Html.ActionLink("My notes", "Index")</a>
+            <a href="#" class="card-link">@Html.ActionLink("Edit", "Edit", new { Id = Model.Id })</a>
+        </div>
+    </div>
+</div>
+<!--<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>-->
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

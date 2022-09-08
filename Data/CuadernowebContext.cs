@@ -16,7 +16,7 @@ namespace Cuaderno_virtual.Data
             : base(options)
         {
         }
-
+        
         public virtual DbSet<Note> Notes { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -28,9 +28,7 @@ namespace Cuaderno_virtual.Data
             {
                 entity.ToTable("note");
 
-                entity.Property(e => e.Id)
-                    .ValueGeneratedNever()
-                    .HasColumnName("id");
+                entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Active).HasColumnName("active");
 

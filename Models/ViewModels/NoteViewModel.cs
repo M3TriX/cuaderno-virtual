@@ -4,6 +4,7 @@ namespace Cuaderno_virtual.Models.ViewModels
 {
     public partial class NoteViewModel
     {
+        public int id { get; set; }
         [Required]
         //[Display(title="Título")]
         public string title { get; set; }

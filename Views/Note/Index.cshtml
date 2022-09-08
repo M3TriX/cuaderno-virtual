@@ -6,16 +6,26 @@
 <!--hago uso de la lista que envié a traves del controlador-->
 <h1>Mis notas</h1>
 
-<p><a asp-action="Create">Crear</a></p>
+<p><a asp-action="Create">Create New</a></p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString")  
+        <input type="submit" value="Search" /></p>
+}
 
 <table class="table">
     <thead>
         <tr>
             <th>
-                Titulo
+                <a>@Html.ActionLink("Titulo", "Index", new { orden = "Title" })</a>
             </th>
             <th>
-                Fecha
+                <a>@Html.ActionLink("Description", "Index", new { orden = "Description" })</a>
+            </th>
+            <th>
+                <a>@Html.ActionLink("Date", "Index", new { orden = "Date" })</a>
             </th>
             <th></th>
         </tr>
@@ -26,9 +36,10 @@
             if(note.Active){
                 <tr>
                     <td>@Html.DisplayFor(n=>note.Title)</td>
+                    <td>@Html.DisplayFor(n=>note.Body)</td>
                     <td>@note.Date.ToShortDateString()</td>
+                    <td>@Html.ActionLink("Details", "Details", new { Id = note.Id })</td>
                 </tr>
-
             }
         }
     </tbody>
