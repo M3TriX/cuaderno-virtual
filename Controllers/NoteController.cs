@@ -18,20 +18,21 @@ public class NoteController : Controller
         _context = context;
     }
 
-    public IActionResult Index(string orden)
+    public IActionResult Index(int orden)
     {
-        orden = String.IsNullOrEmpty(orden) ? "Title" : orden;
-
         var notes1 = from s in _context.Notes select s;
         switch(orden){
-            case "Description":
-                notes1.OrderBy(s => s.Body);
+            case 1:
+                notes1 = notes1.OrderBy(s => s.Title);
                 break;
-            case "Date":
-                notes1.OrderBy(s => s.Date);
+            case 2:
+                notes1 = notes1.OrderBy(s => s.Body);
+                break;
+            case 3:
+                notes1 = notes1.OrderBy(s => s.Date);
                 break;
             default:
-                notes1.OrderBy(s => s.Title);
+                notes1 = notes1.OrderBy(s => s.Title);
                 break;
         }
         return View(notes1.ToList());

@@ -44,5 +44,4 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Note}/{action=Index}/{id?}");
-
 app.Run();
