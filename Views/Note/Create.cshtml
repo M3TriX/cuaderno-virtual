@@ -1,0 +1,46 @@
+﻿@using Cuaderno_virtual.Models.ViewModels
+@model NoteViewModel
+
+@{
+    ViewData["Title"] = "Create notes";
+}
+<!--hago uso de la lista que envié a traves del controlador-->
+<h1>Create note</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group mb-lg-4">
+                <label asp-for="title" class="control-label"></label>
+                <input asp-for="title" class="form-control"/>
+                <span asp-validation-for="title" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-lg-4">
+                <label asp-for="body" class="control-label"></label>
+                <textarea asp-for="body" class="form-control"></textarea>
+                <span asp-validation-for="body" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-lg-4">
+                <label asp-for="date" class="control-label"></label>
+                <input asp-for="date" class="datefield form-control" type="date"/>
+                <span asp-validation-for="date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<!--<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>-->
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

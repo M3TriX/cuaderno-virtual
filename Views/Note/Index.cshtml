@@ -1,0 +1,40 @@
+﻿@model List<Note>
+
+@{
+    ViewData["Title"] = "My notes";
+}
+<!--hago uso de la lista que envié a traves del controlador-->
+<h1>Mis notas</h1>
+
+<p><a asp-action="Create">Crear</a></p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Titulo
+            </th>
+            <th>
+                Fecha
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var note in Model)
+        {
+            if(note.Active){
+                <tr>
+                    <td>@Html.DisplayFor(n=>note.Title)</td>
+                    <td>@note.Date.ToShortDateString()</td>
+                </tr>
+
+            }
+        }
+    </tbody>
+</table>
+
+<!--<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>-->
