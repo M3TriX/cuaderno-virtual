@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-//aquí se realiza una injección de dependencias para hacer uso de la base datos
+//aquí se realiza una inyección de dependencias para hacer uso de la base datos
 builder.Services.AddDbContext<CuadernowebContext>(
 options =>
 {

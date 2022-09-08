@@ -62,12 +62,19 @@ public class NoteController : Controller
 
     public IActionResult Details(int Id){
         var note = _context.Notes.Find(Id);
-
+        if (note == null)
+        {
+            return NotFound();
+        }
         return View(note);
     }
 
     public IActionResult Edit(int Id){
         var note = _context.Notes.Find(Id);
+        if (note == null)
+        {
+            return NotFound();
+        }
         var viewnote = new NoteViewModel()
             {
                 id = note.Id,
