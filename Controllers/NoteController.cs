@@ -17,7 +17,10 @@ public class NoteController : Controller
         _context = context;
     }
 
-    public IActionResult Index() => View(_context.Notes.ToList());
+    public IActionResult Index(string orden)
+    {
+        return View(_context.Notes.ToList());
+    }
     public IActionResult Create() => View();
 
     [HttpPost]
@@ -26,7 +29,6 @@ public class NoteController : Controller
     {
         if(ModelState.IsValid)
         {
-            System.Console.Write("pasó");
             var note = new Note()
             {
                 Title = model.title,
