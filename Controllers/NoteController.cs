@@ -18,9 +18,13 @@ public class NoteController : Controller
         _context = context;
     }
 
-    public IActionResult Index(int orden)
+    public IActionResult Index(int orden,string searchString)
     {
         var notes1 = from s in _context.Notes select s;
+        if (!String.IsNullOrEmpty(searchString))
+        {
+            notes1 = notes1.Where(s => s.Title.ToUpper().Contains(searchString.ToUpper()));
+        }
         switch(orden){
             case 1:
                 notes1 = notes1.OrderBy(s => s.Title);
