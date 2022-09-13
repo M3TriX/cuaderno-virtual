@@ -4,14 +4,14 @@ namespace Cuaderno_virtual.Models.ViewModels
 {
     public partial class NoteViewModel
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         [Required]
         //[Display(title="Título")]
-        public string title { get; set; }
+        public string Title { get; set; }
         [Required]
-        public string body { get; set; }
+        public string Body { get; set; }
         [Required]
         [DataType(DataType.Date)]
-        public DateTime date { get; set; }
+        public DateTime Date { get; set; }
     }
 }

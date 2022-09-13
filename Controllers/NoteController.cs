@@ -51,9 +51,9 @@ public class NoteController : Controller
         {
             var note = new Note()
             {
-                Title = model.title,
-                Body = model.body,
-                Date = new DateOnly(model.date.Year,model.date.Month,model.date.Day),
+                Title = model.Title,
+                Body = model.Body,
+                Date = new DateOnly(model.Date.Year,model.Date.Month,model.Date.Day),
                 Active = true
             };
             
@@ -81,10 +81,10 @@ public class NoteController : Controller
         }
         var viewnote = new NoteViewModel()
             {
-                id = note.Id,
-                title = note.Title,
-                body = note.Body,
-                date = new DateTime(note.Date.Year,note.Date.Month,note.Date.Day)
+                Id = note.Id,
+                Title = note.Title,
+                Body = note.Body,
+                Date = new DateTime(note.Date.Year,note.Date.Month,note.Date.Day)
             };
         return View(viewnote);
     }
@@ -97,10 +97,10 @@ public class NoteController : Controller
         {
             var note = new Note()
             {
-                Id = model.id,
-                Title = model.title,
-                Body = model.body,
-                Date = new DateOnly(model.date.Year,model.date.Month,model.date.Day),
+                Id = model.Id,
+                Title = model.Title,
+                Body = model.Body,
+                Date = new DateOnly(model.Date.Year,model.Date.Month,model.Date.Day),
                 Active = true
             };
             
