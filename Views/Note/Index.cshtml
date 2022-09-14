@@ -5,49 +5,44 @@
 }
 <!--hago uso de la lista que envié a traves del controlador-->
 <h1>My notes</h1>
-
-<p><a asp-action="Create">Create New</a></p>
-
+<br>
+<p><a class="btn btn-primary" asp-action="Create">Create New</a></p>
+<br>
 @using (Html.BeginForm())
 {
     <p>
         Find by Title: @Html.TextBox("SearchString")  
-        <input type="submit" value="Search" /></p>
+        <input class="btn btn-primary" type="submit" value="Search" /></p>
 }
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                <a>@Html.ActionLink("Titulo", "Index", new { orden = 1 })</a>
-            </th>
-            <th>
-                <a>@Html.ActionLink("Description", "Index", new { orden = 2 })</a>
-            </th>
-            <th>
-                <a>@Html.ActionLink("Date", "Index", new { orden = 3 })</a>
-            </th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var note in Model)
-        {
-            if(note.Active){
-                <tr>
-                    <td>@Html.DisplayFor(n=>note.Title)</td>
-                    <td>@Html.DisplayFor(n=>note.Body)</td>
-                    <td>@note.Date.ToShortDateString()</td>
-                    <td>@Html.ActionLink("Details", "Details", new { Id = note.Id })</td>
-                    <td>@Html.ActionLink("Edit", "Edit", new { Id = note.Id })</td>
-                </tr>
+<br>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    <a>@Html.ActionLink("Title", "Index", new { orden = 1 })</a>
+                </th>
+                <th>
+                    <a>@Html.ActionLink("Description", "Index", new { orden = 2 })</a>
+                </th>
+                <th>
+                    <a>@Html.ActionLink("Date", "Index", new { orden = 3 })</a>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var note in Model)
+            {
+                if(note.Active){
+                    <tr>
+                        <td>@Html.DisplayFor(n=>note.Title)</td>
+                        <td>@Html.DisplayFor(n=>note.Body)</td>
+                        <td>@note.Date.ToShortDateString()</td>
+                        <td>@Html.ActionLink("Details", "Details", new { Id = note.Id })  @Html.ActionLink("Edit", "Edit", new { Id = note.Id })</td>
+                    </tr>
+                }
             }
-        }
-    </tbody>
-</table>
-
-<!--<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>-->
+        </tbody>
+    </table>
+</div>

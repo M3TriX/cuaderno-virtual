@@ -1,9 +1,7 @@
-﻿using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Cuaderno_virtual.Models;
 using Cuaderno_virtual.Data;
 using Cuaderno_virtual.Models.ViewModels;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace Cuaderno_virtual.Controllers;
