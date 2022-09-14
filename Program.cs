@@ -19,11 +19,11 @@ options =>
 var app = builder.Build();
 
 //este scope ha sido declarado con el objetivo que cuando se inicialice el proyecto cree la base de dato si no existe
-using(var scope = app.Services.CreateScope())
+/*using(var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<CuadernowebContext>();
     context.Database.Migrate();
-}
+}*/
 
 
 // Configure the HTTP request pipeline.
