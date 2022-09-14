@@ -18,7 +18,7 @@ options =>
 
 var app = builder.Build();
 
-//este scope ha sido declarado con el objetivo que cuando se inicialice el proyecto cree la base de dato si no existe
+//este scope ha sido declarado con el objetivo que cuando se inicialice el proyecto cree las tablas en la base de datos si no existe
 /*using(var scope = app.Services.CreateScope())
 {
     var context = scope.ServiceProvider.GetRequiredService<CuadernowebContext>();
